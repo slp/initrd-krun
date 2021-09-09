@@ -1,0 +1,16 @@
+# A simple initramfs needed in order to load a LUKS partition
+# at boot time
+dir /dev 0755 0 0
+nod /dev/console 0600 0 0 c 5 1
+nod /dev/random 0600 0 0 c 1 8
+nod /dev/urandom 0600 0 0 c 1 9
+nod /dev/vda 0600 0 0 b 254 0
+dir /proc 0700 0 0
+dir /root 0700 0 0
+dir /sbin 0755 0 0
+dir /bin 0755 0 0
+dir /run 0755 0 0
+dir /luksroot 0755 0 0
+dir /vfsroot 0755 0 0
+file /init /tmp/init 0755 0 0
+file /sbin/cryptsetup /tmp/cryptsetup 0755 0 0
